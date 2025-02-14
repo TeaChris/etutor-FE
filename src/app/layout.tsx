@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import '../styles/globals.css';
 import { cn } from '@/lib/utils';
+import { Navbar } from '@/components';
 
 const poppins = Poppins({
   display: 'swap',
@@ -24,8 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn('h-svh w-svw antialiased', poppins.variable)}>
-        {children}
+      <body
+        className={cn('h-svh w-svw antialiased space-y-0', poppins.variable)}
+      >
+        <Navbar />
+
+        <div className="w-full">{children}</div>
       </body>
     </html>
   );
