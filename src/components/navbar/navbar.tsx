@@ -45,13 +45,13 @@ const Navbar = () => {
     <div className="w-screen h-[148px] space-y-0">
       <div className="bg-black w-full h-[45%]">
         <MaxWidthWrapper
-          className="h-full flex items-center justify-between"
+          className="flex justify-between items-center h-full"
           isLarge
         >
-          <div className="flex items-center gap-x-7">
+          <div className="flex gap-x-7 items-center">
             {topnav.map((nav) => (
               <Link key={nav.label} href={nav.route}>
-                <span className="text-gray-500 text-sm font-semibold">
+                <span className="text-sm font-semibold text-gray-500">
                   {nav.label}
                 </span>
               </Link>
@@ -60,12 +60,12 @@ const Navbar = () => {
         </MaxWidthWrapper>
       </div>
 
-      <div className="w-full h-[55%] bg-transparent border-b border-gray-500">
+      <div className="w-full h-[55%] bg-transparent border-b border-gray-200">
         <MaxWidthWrapper
-          className="h-full flex items-center justify-between"
+          className="flex justify-between items-center h-full"
           isLarge
         >
-          <div className="flex items-center gap-x-7">
+          <div className="flex gap-x-7 items-center">
             <Image src={logo} alt="Logo" width={130} height={130} />
 
             <Select>
@@ -80,8 +80,8 @@ const Navbar = () => {
               </SelectContent>
             </Select>
 
-            <div className="w-80 relative h-fit">
-              <Input placeholder="Search" className=" pl-8" />
+            <div className="relative w-80 h-fit">
+              <Input placeholder="Search" className="pl-8" />
             </div>
           </div>
 
@@ -121,7 +121,7 @@ const Navbar = () => {
             <div className="flex gap-x-4">
               <button className="px-2 py-0.5 rounded-sm bg-primary-100">
                 <Link
-                  href="/sign-in"
+                  href="/create-account"
                   className={buttonVariants({
                     variant: 'link',
                     className: 'no-underline',
