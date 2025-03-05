@@ -26,7 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn('h-svh w-svw antialiased space-y-0', poppins.variable)}
+        className={cn(
+          'h-svh w-svw antialiased space-y-0 overflow-x-hidden',
+          poppins.variable,
+        )}
       >
         <Navbar />
 
