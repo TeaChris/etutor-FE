@@ -7,10 +7,11 @@
  * Copyright (c) 2025 Hq
  */
 
-import { MaxWidthWrapper, MinHeader } from '@/components';
+import { Button, Icons, MaxWidthWrapper, MinHeader } from '@/components';
 import {
   aboutHeaderImg,
   circleCheck,
+  gallery,
   globe,
   google,
   lenovo,
@@ -188,7 +189,39 @@ const Page = () => {
 
       <section className="w-full bg-gray-50 h-[724px]">
         <MaxWidthWrapper className="flex items-center h-full">
-          <div></div>
+          <div className="space-y-8 w-2/6">
+            <div className="space-y-2">
+              <h6 className="text-base font-semibold text-primary-500">
+                OUR GALLERY
+              </h6>
+
+              <h3 className="w-72 text-4xl font-bold text-black">
+                We’ve been here almost 17 years
+              </h3>
+            </div>
+
+            <div className="space-y-2">
+              <p className="text-base text-gray-500">
+                Fusce lobortis leo augue, sit amet tristique nisi commodo in.
+                Aliquam ac libero quis tellus venenatis imperdiet. Sed sed nunc
+                libero. Curabitur in urna ligula. torquent per conubia nostra.
+              </p>
+
+              <Button className="flex gap-x-2 items-center">
+                Join our team <Icons.rightArrow size={16} className="mt-1" />
+              </Button>
+            </div>
+          </div>
+
+          <div className="overflow-hidden w-[75%] pl-10 h-full">
+            <Image
+              src={gallery}
+              alt="gallery image"
+              width={800}
+              height={800}
+              className="object-cover w-full h-full"
+            />
+          </div>
         </MaxWidthWrapper>
       </section>
     </main>
