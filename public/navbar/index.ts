@@ -11,5 +11,8 @@
  * ############################################################################### *
  */
 import logo from './logo.svg';
+import bell from './bell.svg';
+import heart from './heart.svg';
+import shoppingCartSimple from './shoppingCartSimple.svg';
 
-export { logo };
+export { logo, bell, heart, shoppingCartSimple };
