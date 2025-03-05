@@ -27,8 +27,10 @@ import circleCheck from './CircleWavyCheck.svg';
 import stack from './Stack.svg';
 
 import mission from './mission.png';
+import gallery from './Gallery.png';
 
 export {
+  gallery,
   mission,
   stack,
   circleCheck,
