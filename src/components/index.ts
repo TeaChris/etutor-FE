@@ -3,7 +3,7 @@
  * Created Date: Fr Feb 2025                                                   *
  * Author: Boluwatife Olasunkanmi O.                                           *
  * -----                                                                       *
- * Last Modified: Fri Feb 14 2025                                              *
+ * Last Modified: Wed Mar 05 2025                                              *
  * Modified By: Boluwatife Olasunkanmi O.                                      *
  * -----                                                                       *
  * HISTORY:                                                                    *
@@ -13,4 +13,5 @@
 export * from './navbar';
 
 export * from './max-width-wrapper';
+export * from './min-header';
 export * from './ui';
