@@ -29,7 +29,10 @@ export default function Home() {
               alt="header image"
               width={500}
               height={500}
-              className="object-cover w-full h-full"
+              className="
+      object-cover w-full h-full
+      [clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)]
+    "
             />
           </div>
         </div>
