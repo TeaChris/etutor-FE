@@ -8,7 +8,22 @@
  */
 
 import { MaxWidthWrapper, MinHeader } from '@/components';
-import { aboutHeaderImg } from '@public/about';
+import {
+  aboutHeaderImg,
+  circleCheck,
+  globe,
+  google,
+  lenovo,
+  lexmark,
+  microsoft,
+  netflix,
+  notebook,
+  slack,
+  stack,
+  usersIcon,
+  verizon,
+  youtube,
+} from '@public/about';
 import Image from 'next/image';
 
 const Page = () => {
@@ -42,6 +57,95 @@ const Page = () => {
               height={600}
               className="w-[500px] h-[400px] 2xl:w-[672px] 2xl:h-[500px] object-cover"
             />
+          </div>
+        </MaxWidthWrapper>
+      </section>
+
+      <section className="w-full">
+        <MaxWidthWrapper className="grid place-items-center space-y-12">
+          <div className="flex justify-between items-center w-full">
+            <div className="space-y-4 w-[29%]">
+              <h3 className="text-3xl font-medium tracking-wider text-black">
+                We Just keep growing with 6.3k Companies
+              </h3>
+
+              <p className="text-base text-gray-300">
+                Nullam egestas tellus at enim ornare tristique. Class aptent
+                taciti sociosqu ad litora torquent
+              </p>
+            </div>
+
+            <div className="grid grid-cols-4 gap-x-3 gap-y-6 w-3/5">
+              {[
+                netflix,
+                youtube,
+                google,
+                lenovo,
+                slack,
+                verizon,
+                lexmark,
+                microsoft,
+              ].map((img, i) => (
+                <div
+                  className="w-[150px] h-[60px] bg-white shadow-lg grid place-items-center"
+                  key={i}
+                >
+                  <Image
+                    src={img}
+                    alt="partner company logo"
+                    width={70}
+                    height={70}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid place-items-center w-full">
+            <div className="flex gap-x-12">
+              {[
+                {
+                  icon: usersIcon,
+                  title: '67.1k',
+                  label: 'students',
+                },
+                {
+                  icon: notebook,
+                  title: '26k',
+                  label: 'certified instructors',
+                },
+                {
+                  icon: globe,
+                  title: '72',
+                  label: 'country languages',
+                },
+                {
+                  icon: circleCheck,
+                  title: '99.9%',
+                  label: 'success rate',
+                },
+                {
+                  icon: stack,
+                  title: '57',
+                  label: 'trusted company',
+                },
+              ].map((item) => {
+                return (
+                  <article
+                    className="flex gap-x-4 items-start"
+                    key={item.title}
+                  >
+                    <Image alt="icon" src={item.icon} width={25} height={25} />
+
+                    <div className="space-y-1">
+                      <h6 className="text-xl font-bold">{item.title}</h6>
+
+                      <p className="text-base text-gray-400">{item.label}</p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </MaxWidthWrapper>
       </section>
