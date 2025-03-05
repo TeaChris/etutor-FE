@@ -26,7 +26,10 @@ import globe from './GlobeHemisphereWest.svg';
 import circleCheck from './CircleWavyCheck.svg';
 import stack from './Stack.svg';
 
+import mission from './mission.png';
+
 export {
+  mission,
   stack,
   circleCheck,
   usersIcon,
