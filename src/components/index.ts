@@ -14,4 +14,6 @@ export * from './navbar';
 
 export * from './max-width-wrapper';
 export * from './min-header';
+export * from './icons';
+
 export * from './ui';
