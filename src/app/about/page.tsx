@@ -16,6 +16,7 @@ import {
   lenovo,
   lexmark,
   microsoft,
+  mission,
   netflix,
   notebook,
   slack,
@@ -61,7 +62,7 @@ const Page = () => {
         </MaxWidthWrapper>
       </section>
 
-      <section className="w-full">
+      <section className="pb-20 w-full">
         <MaxWidthWrapper className="grid place-items-center space-y-12">
           <div className="flex justify-between items-center w-full">
             <div className="space-y-4 w-[29%]">
@@ -147,6 +148,47 @@ const Page = () => {
               })}
             </div>
           </div>
+        </MaxWidthWrapper>
+      </section>
+
+      <section className="w-full h-[436px] bg-primary-100">
+        <MaxWidthWrapper className="flex justify-between items-center w-full h-full">
+          <div className="w-1/2 h-full">
+            <Image
+              src={mission}
+              alt="mission section image"
+              width={600}
+              height={600}
+              className="object-cover w-full h-full"
+            />
+          </div>
+
+          <div className="pl-20 space-y-16 w-1/2">
+            <div className="space-y-2">
+              <h6 className="text-base font-semibold text-primary-500">
+                OUR ONE BILLION MISSION
+              </h6>
+
+              <h3 className="w-[30rem] text-4xl font-bold text-black">
+                Our one billion mission sounds bold, We agree.
+              </h3>
+
+              <p className="text-base text-gray-500">
+                &apos;We cannot solve our problems with the same thinking we
+                used when we created them.&apos;—Albert Einstein. Institutions
+                are slow to change. Committees are where good ideas and
+                innovative thinking go to die. Choose agility over dogma.
+                Embrace and drive change. We need to wipe the slate clean and
+                begin with bold, radical thinking.
+              </p>
+            </div>
+          </div>
+        </MaxWidthWrapper>
+      </section>
+
+      <section className="w-full bg-gray-50 h-[724px]">
+        <MaxWidthWrapper className="flex items-center h-full">
+          <div></div>
         </MaxWidthWrapper>
       </section>
     </main>
