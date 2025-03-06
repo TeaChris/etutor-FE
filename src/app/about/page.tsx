@@ -27,6 +27,7 @@ import {
   youtube,
 } from '@public/about';
 import Image from 'next/image';
+// import Link from 'next/link';
 
 const Page = () => {
   return (
@@ -221,6 +222,40 @@ const Page = () => {
               height={800}
               className="object-cover w-full h-full"
             />
+          </div>
+        </MaxWidthWrapper>
+      </section>
+
+      <section className="pt-12 w-full">
+        <MaxWidthWrapper className="grid place-items-center">
+          <div className="flex gap-x-8">
+            {[
+              {
+                text: 'Eduguard fit us like a glove. Their team curates fresh, up-to-date courses from their marketplace and makes them available to customers.',
+                name: 'Sundar Pichai',
+                title: 'Chief Chairman of',
+                company: 'Google',
+              },
+              {
+                text: 'Edugaurd responds to the needs of the business in an agile and global manner. It’s truly the best solution for our employees and their careers.',
+                name: 'Satya Nadella',
+                title: 'CEO of',
+                company: 'Microsoft',
+              },
+              {
+                text: 'In total, it was a big success, I would get emails about what a fantastic resource it was.',
+                name: 'Ted Sarandos',
+                title: 'Chief Executive Officer of',
+                company: 'Netflix',
+              },
+            ].map((item) => (
+              <article
+                key={item.title}
+                className="w-[424px] h-[256px] bg-gray-50 grid place-items-center relative"
+              >
+                {/* <pcl></pcl> */}
+              </article>
+            ))}
           </div>
         </MaxWidthWrapper>
       </section>
