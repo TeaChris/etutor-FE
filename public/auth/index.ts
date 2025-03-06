@@ -12,5 +12,8 @@
  */
 
 import createAccount from './create-account.png';
+import google from './google.svg';
+import apple from './apple.svg';
+import facebook from './facebook.svg';
 
-export { createAccount };
+export { createAccount, apple, google, facebook };
