@@ -119,10 +119,11 @@ const Navbar = () => {
             </Link>
 
             <div className="flex gap-x-4">
-              <Link href="/create-account">
-                <button className="grid place-items-center w-32 h-11 font-semibold text-primary-500 bg-primary-100">
-                  Create account
-                </button>
+              <Link
+                href="/create-account"
+                className="grid place-items-center w-32 h-11 font-semibold text-primary-500 bg-primary-100"
+              >
+                Create account
               </Link>
 
               <Button className="mr-4">
