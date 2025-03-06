@@ -119,17 +119,11 @@ const Navbar = () => {
             </Link>
 
             <div className="flex gap-x-4">
-              <button className="px-2 py-0.5 rounded-sm bg-primary-100">
-                <Link
-                  href="/create-account"
-                  className={buttonVariants({
-                    variant: 'link',
-                    className: 'no-underline',
-                  })}
-                >
+              <Link href="/create-account">
+                <button className="grid place-items-center w-32 h-11 font-semibold text-primary-500 bg-primary-100">
                   Create account
-                </Link>
-              </button>
+                </button>
+              </Link>
 
               <Button className="mr-4">
                 <Link href="/sign-in">Sign in</Link>
