@@ -180,15 +180,15 @@ const Page = () => {
                   <Input
                     placeholder="Input password"
                     type={showPassword ? 'text' : 'password'}
-                    {...register('password')}
+                    {...register('confirmPassword')}
                     className={cn({
-                      'focus-visible:ring-red-500': errors.password,
+                      'focus-visible:ring-red-500': errors.confirmPassword,
                     })}
                   />
 
-                  {errors.password && (
+                  {errors.confirmPassword && (
                     <p className="text-sm text-red-500">
-                      {errors.password.message}
+                      {errors.confirmPassword.message}
                     </p>
                   )}
 
