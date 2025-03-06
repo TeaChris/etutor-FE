@@ -7,10 +7,17 @@
  * Copyright (c) 2025 Hq
  */
 
+import { AuthNav } from '@/components';
+
 export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <main className="space-y-0 w-screen h-screen">{children}</main>;
+  return (
+    <main className="space-y-0 w-screen h-screen">
+      <AuthNav />
+      <div className="w-full h-[calc(100vh-70px)]">{children}</div>
+    </main>
+  );
 }
