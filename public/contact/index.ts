@@ -1,0 +1,16 @@
+/*
+ * ############################################################################### *
+ * Created Date: Th Mar 2025                                                   *
+ * Author: Boluwatife Olasunkanmi O.                                           *
+ * -----                                                                       *
+ * Last Modified: Thu Mar 06 2025                                              *
+ * Modified By: Boluwatife Olasunkanmi O.                                      *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                               *
+ * ############################################################################### *
+ */
+
+import fit from './Fit.png';
+
+export { fit };
