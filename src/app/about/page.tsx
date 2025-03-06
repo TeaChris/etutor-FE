@@ -249,12 +249,65 @@ const Page = () => {
                 company: 'Netflix',
               },
             ].map((item) => (
-              <article
+              <div
                 key={item.title}
-                className="w-[424px] h-[256px] bg-gray-50 grid place-items-center relative"
+                className="w-[350px] space-y-5 flex flex-col items-center"
               >
-                {/* <pcl></pcl> */}
-              </article>
+                <article
+                  className="
+    relative
+    w-full
+    h-[205px]
+    bg-gray-50
+    grid
+    place-items-center
+    
+    before:content-['“']
+    before:absolute
+    before:top-2
+    before:left-2
+    before:text-orange-500
+    before:text-7xl
+
+    
+    after:content-['”']
+    after:absolute
+    after:-bottom-2
+    after:right-2
+    after:text-orange-500
+    after:text-7xl
+  "
+                >
+                  <p className="w-60 text-base text-center text-gray-900">
+                    {item.text}
+                  </p>
+
+                  <div
+                    className="
+      absolute
+      -bottom-2
+      left-1/2
+      -translate-x-1/2
+      w-2
+      h-2
+      border-l-[8px]
+      border-l-transparent
+      border-r-[8px]
+      border-r-transparent
+      border-t-[8px]
+      border-t-gray-50
+    "
+                  />
+                </article>
+
+                <div className="flex flex-col items-center gap-y-0.5">
+                  <h6 className="text-sm text-gry-900">{item.name}</h6>
+                  <p className="text-sm text-gry-500">
+                    {item.title}{' '}
+                    <span className="text-blue-600">{item.company}</span>
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </MaxWidthWrapper>
