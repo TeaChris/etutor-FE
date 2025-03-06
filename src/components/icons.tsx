@@ -8,6 +8,8 @@
  */
 
 import {
+  Eye,
+  EyeOff,
   LucideProps,
   Mail,
   MessageSquare,
@@ -19,6 +21,8 @@ export const Icons = {
   user: User,
   rightArrow: MoveRight,
   message: Mail,
+  eye: Eye,
+  eyeOff: EyeOff,
   logo: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 497 497">
       <g>
