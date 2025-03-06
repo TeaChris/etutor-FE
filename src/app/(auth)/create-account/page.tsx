@@ -8,7 +8,7 @@
  */
 
 import { Button, Checkbox, Icons, Input, Label } from '@/components';
-import { createAccount } from '@public/auth';
+import { apple, createAccount, facebook, google } from '@public/auth';
 import Image from 'next/image';
 
 const Page = () => {
@@ -81,6 +81,35 @@ const Page = () => {
               <Button className="flex gap-x-2 item-center">
                 Create account <Icons.rightArrow className="mt-1" size={17} />
               </Button>
+            </div>
+
+            <div className="grid relative mt-5 w-full h-4 place-item">
+              <div aria-hidden="true" className="w-full h-0.5 bg-gray-100" />
+
+              <div className="absolute -top-3 left-[40%] p-0.5 text-sm text-gray-500 bg-white">
+                Sign up with
+              </div>
+            </div>
+
+            <div className="flex gap-x-8 pt-4">
+              {[
+                { icon: google, text: 'google' },
+                { icon: facebook, text: 'facebook' },
+                { icon: apple, text: 'apple' },
+              ].map((item, i) => (
+                <button
+                  className="flex w-40 h-10 border border-gray-200"
+                  key={i}
+                >
+                  <div className="w-[30%] grid place-items-center h-full border-r">
+                    <Image src={item.icon} alt="" width={18} height={18} />
+                  </div>
+
+                  <div className="grid place-items-center w-4/5 text-gray-500">
+                    {item.text}
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
         </form>
