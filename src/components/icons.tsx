@@ -7,11 +7,18 @@
  * Copyright (c) 2025 Hq
  */
 
-import { LucideProps, MessageSquare, MoveRight, User } from 'lucide-react';
+import {
+  LucideProps,
+  Mail,
+  MessageSquare,
+  MoveRight,
+  User,
+} from 'lucide-react';
 
 export const Icons = {
   user: User,
   rightArrow: MoveRight,
+  message: Mail,
   logo: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 497 497">
       <g>
