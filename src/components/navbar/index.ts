@@ -3,7 +3,7 @@
  * Created Date: Fr Feb 2025                                                   *
  * Author: Boluwatife Olasunkanmi O.                                           *
  * -----                                                                       *
- * Last Modified: Fri Feb 14 2025                                              *
+ * Last Modified: Thu Mar 06 2025                                              *
  * Modified By: Boluwatife Olasunkanmi O.                                      *
  * -----                                                                       *
  * HISTORY:                                                                    *
@@ -11,3 +11,4 @@
  * ############################################################################### *
  */
 export * from './navbar';
+export * from './auth-nav';
