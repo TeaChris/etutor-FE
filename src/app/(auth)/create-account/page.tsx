@@ -146,7 +146,7 @@ const Page = () => {
                 <div className="w-[48%] space-y-0.5 relative">
                   <Input
                     placeholder="Input password"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     {...register('password')}
                     className={cn({
                       'focus-visible:ring-red-500': errors.password,
@@ -179,7 +179,7 @@ const Page = () => {
                 <div className="w-[48%] space-y-0.5 relative">
                   <Input
                     placeholder="Input password"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     {...register('password')}
                     className={cn({
                       'focus-visible:ring-red-500': errors.password,
