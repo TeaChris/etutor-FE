@@ -39,7 +39,7 @@ const Page = () => {
     reset,
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<TCreateAccountSchema>({
     resolver: zodResolver(createAccountSchema),
   });
@@ -56,6 +56,7 @@ const Page = () => {
       terms: values.termsAndConditions,
     };
 
+    console.log(formData);
     const { data, error } = await callApi('/auth/create-account', {
       ...formData,
     });
@@ -108,7 +109,8 @@ const Page = () => {
               <div className="flex justify-between w-full">
                 <div className="w-[48%] space-y-0.5">
                   <Input
-                    placeholder="Last name"
+                    {...register('firstName')}
+                    placeholder="First name"
                     className={cn('w-full', {
                       'focus-visible:ring-red-500': errors.firstName,
                     })}
@@ -123,6 +125,7 @@ const Page = () => {
 
                 <div className="w-[48%] space-y-0.5">
                   <Input
+                    {...register('lastName')}
                     placeholder="Last name"
                     className={cn('w-full', {
                       'focus-visible:ring-red-500': errors.lastName,
@@ -211,7 +214,7 @@ const Page = () => {
 
                 <div className="w-[48%] space-y-0.5 relative">
                   <Input
-                    placeholder="Input password"
+                    placeholder="Confirm password"
                     type={showPassword ? 'text' : 'password'}
                     {...register('confirmPassword')}
                     className={cn({
@@ -267,10 +270,7 @@ const Page = () => {
                 )}
               </div>
 
-              <Button
-                className="flex gap-x-2 item-center"
-                disabled={isPending || !isValid}
-              >
+              <Button className="flex gap-x-2 item-center" disabled={isPending}>
                 Create account <Icons.rightArrow className="mt-1" size={17} />
               </Button>
             </div>
