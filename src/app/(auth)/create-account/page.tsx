@@ -9,7 +9,15 @@
 
 'use client';
 
-import { Button, Checkbox, Icons, Input, Label } from '@/components';
+import {
+  Button,
+  Checkbox,
+  FormError,
+  FormSuccess,
+  Icons,
+  Input,
+  Label,
+} from '@/components';
 import { apple, createAccount, google } from '@public/auth';
 import Image from 'next/image';
 
@@ -23,6 +31,8 @@ const Page = () => {
   const router = useRouter();
 
   const [isPending, setIsPending] = useState<boolean>(false);
+  const [error, setError] = useState<string | undefined>('');
+  const [success, setSuccess] = useState<string | undefined>('');
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const {
@@ -52,11 +62,13 @@ const Page = () => {
 
     if (data) {
       setIsPending(false);
+      setSuccess(data.message);
       router.push('/verify-email');
       return;
     }
 
     if (error) {
+      setError(error.message);
       setIsPending(false);
       return;
     }
@@ -80,6 +92,11 @@ const Page = () => {
           className="flex flex-col items-center w-3/4 gap-y-12"
           onSubmit={handleSubmit(onSubmit)}
         >
+          <>
+            {error && <FormError message={error} />}
+            {success && <FormSuccess message={success} />}
+          </>
+
           <h1 className="text-4xl font-bold text-gray-900">
             Create your account
           </h1>
