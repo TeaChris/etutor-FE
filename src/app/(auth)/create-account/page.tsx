@@ -1,5 +1,5 @@
 /*
- * Filename: c:\Users\LENOVO\e-tutor\src\app\(auth)\create-account\page.tsx
+ * Filename: c:\Users\LENOVO\etutor\e-tutor\src\app\(auth)\create-account\page.tsx
  * Path: c:\Users\LENOVO\e-tutor
  * Created Date: Thursday, March 6th 2025, 10:23:13 am
  * Author: Boluwatife Olasunkanmi O.
@@ -10,7 +10,7 @@
 'use client';
 
 import { Button, Checkbox, Icons, Input, Label } from '@/components';
-import { apple, createAccount, facebook, google } from '@public/auth';
+import { apple, createAccount, google } from '@public/auth';
 import Image from 'next/image';
 
 import { useForm } from 'react-hook-form';
@@ -50,7 +50,7 @@ const Page = () => {
 
   return (
     <main className="flex w-full h-full">
-      <div className="overflow-hidden w-1/2 h-full bg-secondary-100">
+      <div className="w-1/2 h-full overflow-hidden bg-secondary-100">
         <Image
           src={createAccount}
           alt="create account image"
@@ -59,17 +59,17 @@ const Page = () => {
         />
       </div>
 
-      <div className="grid place-items-center w-1/2 h-full">
+      <div className="grid w-1/2 h-full place-items-center">
         <form
-          className="flex flex-col gap-y-12 items-center w-3/4"
+          className="flex flex-col items-center w-3/4 gap-y-12"
           onSubmit={handleSubmit(onSubmit)}
         >
           <h1 className="text-4xl font-bold text-gray-900">
             Create your account
           </h1>
 
-          <div className="space-y-4 w-full">
-            <div className="space-y-1 w-full">
+          <div className="w-full space-y-4">
+            <div className="w-full space-y-1">
               <Label htmlFor="names">Full name</Label>
 
               <div className="flex justify-between w-full">
@@ -105,7 +105,7 @@ const Page = () => {
               </div>
             </div>
 
-            <div className="space-y-1 w-full">
+            <div className="w-full space-y-1">
               <Label htmlFor="username">Username</Label>
 
               <Input
@@ -123,7 +123,7 @@ const Page = () => {
               )}
             </div>
 
-            <div className="space-y-1 w-full">
+            <div className="w-full space-y-1">
               <Label htmlFor="email">Email</Label>
 
               <Input
@@ -139,7 +139,7 @@ const Page = () => {
               )}
             </div>
 
-            <div className="space-y-1 w-full">
+            <div className="w-full space-y-1">
               <Label htmlFor="password">Password</Label>
 
               <div className="flex justify-between w-full">
@@ -211,7 +211,7 @@ const Page = () => {
               </div>
             </div>
 
-            <div className="flex justify-between items-center mt-3">
+            <div className="flex items-center justify-between mt-3">
               <div className="space-y-0.5">
                 <div className="flex gap-x-2">
                   <Checkbox
@@ -242,7 +242,7 @@ const Page = () => {
               </Button>
             </div>
 
-            <div className="grid relative mt-5 w-full h-4 place-item">
+            <div className="relative grid w-full h-4 mt-5 place-item">
               <div aria-hidden="true" className="w-full h-0.5 bg-gray-100" />
 
               <div className="absolute -top-3 left-[40%] p-0.5 text-sm text-gray-500 bg-white">
@@ -250,25 +250,27 @@ const Page = () => {
               </div>
             </div>
 
-            <div className="flex gap-x-8 pt-4">
-              {[
-                { icon: google, text: 'google' },
-                { icon: facebook, text: 'facebook' },
-                { icon: apple, text: 'apple' },
-              ].map((item, i) => (
-                <button
-                  className="flex w-40 h-10 border border-gray-200"
-                  key={i}
-                >
-                  <div className="w-[30%] grid place-items-center h-full border-r">
-                    <Image src={item.icon} alt="" width={18} height={18} />
-                  </div>
+            <div className="grid w-full h-max place-items-center">
+              <div className="flex pt-4 gap-x-8">
+                {[
+                  { icon: google, text: 'google' },
+                  { icon: apple, text: 'apple' },
+                ].map((item, i) => (
+                  <button
+                    className="flex w-32 h-10 border border-gray-200 disabled:cursor-not-allowed"
+                    disabled
+                    key={i}
+                  >
+                    <div className="w-[30%] grid place-items-center h-full border-r">
+                      <Image src={item.icon} alt="" width={18} height={18} />
+                    </div>
 
-                  <div className="grid place-items-center w-4/5 text-gray-500">
-                    {item.text}
-                  </div>
-                </button>
-              ))}
+                    <div className="grid w-4/5 text-gray-500 place-items-center">
+                      {item.text}
+                    </div>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </form>
