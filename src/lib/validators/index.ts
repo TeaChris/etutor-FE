@@ -3,7 +3,7 @@
  * Created Date: Th Mar 2025                                                   *
  * Author: Boluwatife Olasunkanmi O.                                           *
  * -----                                                                       *
- * Last Modified: Thu Mar 06 2025                                              *
+ * Last Modified: Mon Mar 10 2025                                              *
  * Modified By: Boluwatife Olasunkanmi O.                                      *
  * -----                                                                       *
  * HISTORY:                                                                    *
@@ -48,9 +48,6 @@ export const createAccountSchema = z
         'Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character (@, ., !, #, $, %, &, *)',
       )
       .transform((value) => value.trim()),
-    termsAndConditions: z.boolean().refine((val) => val === true, {
-      message: 'You must accept the terms and conditions',
-    }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: 'Passwords do not match',
