@@ -15,10 +15,13 @@ import Image from 'next/image';
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { cn, createAccountSchema, TCreateAccountSchema } from '@/lib';
+import { callApi, cn, createAccountSchema, TCreateAccountSchema } from '@/lib';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
+  const router = useRouter();
+
   const [isPending, setIsPending] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -43,7 +46,20 @@ const Page = () => {
       terms: values.termsAndConditions,
     };
 
-    console.log(formData);
+    const { data, error } = await callApi('/auth/create-account', {
+      ...formData,
+    });
+
+    if (data) {
+      setIsPending(false);
+      router.push('/verify-email');
+      return;
+    }
+
+    if (error) {
+      setIsPending(false);
+      return;
+    }
 
     reset();
   };
