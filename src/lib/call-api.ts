@@ -102,15 +102,15 @@ export const callApi = async <T>(
           // email has not been verified
           toast.error(error.message);
           break;
-        case 403: {
-          // trigger otp check
-          if (data.message.includes('FORBIDDEN')) {
-            useInitSession.getState().actions.triggerForbiddenError();
-          } else {
-            useInitSession.getState().actions.triggerOTPCheck(true);
-          }
-          break;
-        }
+        // case 403: {
+        //   // trigger otp check
+        //   if (data.message.includes('FORBIDDEN')) {
+        //     useInitSession.getState().actions.triggerForbiddenError();
+        //   } else {
+        //     useInitSession.getState().actions.triggerOTPCheck(true);
+        //   }
+        //   break;
+        // }
         default:
           console.error(`Unknown API error: ${status}`);
       }
