@@ -15,10 +15,10 @@ type RestrictedRoutesType = {
 };
 
 const unprotectedRoutes = [
-  '/', // home page
-  '/about', // about page
-  '/course', // course page (added as per your request)
-  '/contact', // contact page
+  '/',
+  '/about',
+  '/course',
+  '/contact',
   '/create-account',
 ];
 
