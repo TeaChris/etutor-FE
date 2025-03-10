@@ -59,8 +59,7 @@ export const callApi = async <T>(
       ...(data && { data }),
       headers: {
         'x-referrer':
-          process.env.NEXT_PUBLIC_FRONTEND_URL ??
-          'https://www.adminstore.shoppergetit.com',
+          process.env.NEXT_PUBLIC_FRONTEND_URL ?? 'https://www.e-tutor.com',
         ...(isObject(data)
           ? {
               'Content-Type': 'application/json',
