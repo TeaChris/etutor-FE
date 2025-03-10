@@ -20,10 +20,14 @@ import { useInitSession } from '@/store';
 import { toast } from 'sonner';
 
 const BASEURL = process.env.NEXT_PUBLIC_BASE_URL;
+const FRONTENDURL = process.env.NEXT_PUBLIC_FRONTEND_URL;
 
 if (!BASEURL) {
   throw new Error('add BASEURL to your env file');
 }
+
+console.log('BASEURL', BASEURL);
+console.log('BASEURL', FRONTENDURL);
 
 export const isObject = (value: unknown): value is Record<string, unknown> => {
   const isArray = Array.isArray(value);
@@ -58,8 +62,7 @@ export const callApi = async <T>(
       url: endpoint,
       ...(data && { data }),
       headers: {
-        'x-referrer':
-          process.env.NEXT_PUBLIC_FRONTEND_URL ?? 'https://www.e-tutor.com',
+        'x-referrer': FRONTENDURL ?? 'https://www.e-tutor.com',
         ...(isObject(data)
           ? {
               'Content-Type': 'application/json',
