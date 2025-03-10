@@ -57,17 +57,19 @@ const Page = () => {
 
     const formData = {
       email: values.email,
+      terms: termsAccepted,
       password: values.password,
       lastName: values.lastName,
       userName: values.username,
       firstName: values.firstName,
-      terms: termsAccepted,
     };
 
-    console.log(formData);
-    const { data, error } = await callApi('/auth/create-account', {
-      ...formData,
-    });
+    const { data, error } = await callApi(
+      'http://localhost:8000/api/vi/auth/create-account',
+      {
+        ...formData,
+      },
+    );
 
     if (data) {
       setIsPending(false);
