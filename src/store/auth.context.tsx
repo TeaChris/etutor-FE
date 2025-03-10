@@ -15,14 +15,14 @@ type RestrictedRoutesType = {
 };
 
 const unprotectedRoutes = [
-  '/',
-  '/about',
-  '/sign-in',
-  '/contact',
-  '/verify-email',
+  '/', // home page
+  '/about', // about page
+  '/course', // course page (added as per your request)
+  '/contact', // contact page
   '/create-account',
-  '/reset-password',
 ];
+
+const authPages = ['/sign-in', '/reset-password', '/verify-email'];
 
 export const RESTRICTED_ROUTES: RestrictedRoutesType = {
   '/instructor': [ROLES.INSTRUCTOR],
@@ -38,58 +38,48 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const pathName = usePathname();
   const router = useRouter();
 
-  // call getSession on mount once
   useEffect(() => {
     getSession();
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (loading)
+  const isUnprotectedPage = unprotectedRoutes.includes(pathName);
+
+  if (!isUnprotectedPage && loading) {
     return (
-      <>
-        <div className="grid w-screen h-screen place-items-center">
-          <div className="flex flex-col items-center space-y-2">
-            <p className="text-sm animate-pulse">Loading...</p>
-          </div>
+      <div className="grid w-screen h-screen place-items-center">
+        <div className="flex flex-col items-center space-y-2">
+          <p className="text-sm animate-pulse">Loading...</p>
         </div>
-      </>
+      </div>
     );
-
-  if (unprotectedRoutes.includes(pathName) && user) {
-    router.push('/');
-    return null;
   }
 
-  if (unprotectedRoutes.includes(pathName) && user) {
-    router.push('/');
-    return null;
-  }
+  useEffect(() => {
+    if (loading) {
+      return;
+    }
 
-  if (
-    !user &&
-    pathName !== '/sign-in' &&
-    pathName !== '/reset-password' &&
-    pathName !== '/verify-email'
-  ) {
-    toast.error('You are not logged in');
-    router.push('/sign-in');
-    return null;
-  }
+    if (authPages.includes(pathName) && user) {
+      router.push('/');
+    } else if (!user && !authPages.includes(pathName)) {
+      toast.error('You are not logged in');
+      router.push('/sign-in');
+    } else {
+      const requiredRoles = new Set(RESTRICTED_ROUTES[pathName] || []);
+      const hasNoRequiredRoles =
+        requiredRoles.size === 0 ||
+        user?.auth.roles.some((role) => role.slug === ROLES.ADMIN);
+      const userIsAllowed = user?.auth?.roles.some((userRole) =>
+        requiredRoles.has(userRole.slug as ROLES),
+      );
 
-  const requiredRoles = new Set(RESTRICTED_ROUTES[pathName]);
-  const noRequiredRoles =
-    requiredRoles.size === 0 ||
-    user?.auth.roles.some((role) => role.slug === ROLES.ADMIN);
-  const userIsAllowed = user?.auth?.roles.some((userRole) =>
-    requiredRoles.has(userRole.slug as ROLES),
-  );
-
-  if (!noRequiredRoles && !userIsAllowed) {
-    toast.error('You do not have access to this page');
-    router.push('/');
-    return null;
-  }
+      if (!hasNoRequiredRoles && !userIsAllowed) {
+        toast.error('You do not have access to this page');
+        router.push('/');
+      }
+    }
+  }, [loading, user, pathName, router]);
 
   return <Provider value={{}}>{children}</Provider>;
 };
