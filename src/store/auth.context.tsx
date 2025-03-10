@@ -41,6 +41,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   // call getSession on mount once
   useEffect(() => {
     getSession();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
