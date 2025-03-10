@@ -11,7 +11,7 @@
 
 import {
   Button,
-  Checkbox,
+  // Checkbox,
   FormError,
   FormSuccess,
   Icons,
@@ -61,7 +61,7 @@ const Page = () => {
       lastName: values.lastName,
       userName: values.username,
       firstName: values.firstName,
-      terms: values.termsAndConditions,
+      terms: termsAccepted,
     };
 
     console.log(formData);
@@ -259,10 +259,14 @@ const Page = () => {
             <div className="flex items-center justify-between mt-3">
               <div className="space-y-0.5">
                 <div className="flex gap-x-2">
-                  <Checkbox
-                    {...register('termsAndConditions')}
+                  <input
+                    type="checkbox"
+                    checked={termsAccepted}
+                    onChange={(e) =>
+                      setTermsAccepted((e.target as HTMLInputElement).checked)
+                    }
                     className={cn({
-                      'focus-visible:ring-red-500': errors.termsAndConditions,
+                      'focus-visible:ring-red-500': !!termsError,
                     })}
                   />
 
@@ -272,10 +276,8 @@ const Page = () => {
                   </Label>
                 </div>
 
-                {errors.termsAndConditions && (
-                  <p className="text-sm text-red-500">
-                    {errors.termsAndConditions.message}
-                  </p>
+                {termsError && (
+                  <p className="text-sm text-red-500">{termsError}</p>
                 )}
               </div>
 
