@@ -57,11 +57,11 @@ const Page = () => {
 
     const formData = {
       email: values.email,
-      terms: termsAccepted,
       password: values.password,
       lastName: values.lastName,
-      userName: values.username,
+      username: values.username,
       firstName: values.firstName,
+      isTermAndConditionAccepted: termsAccepted,
     };
 
     const { data, error } = await callApi('/auth/create-account', {
