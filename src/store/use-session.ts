@@ -20,7 +20,6 @@ import type { GetSessionApiResponse, IUser, Roles, SelectorFn } from '@/types';
 
 type Session = {
   loading: boolean;
-  triggerOTP: boolean;
   user: IUser | undefined;
   roles: Roles | undefined;
   adminUsers: IUser[];
@@ -28,7 +27,6 @@ type Session = {
   actions: {
     updateRoles: (value: Roles) => void;
     clearSession: () => void;
-    triggerOTPCheck: (value: boolean) => void;
     signOut: () => Promise<void>;
     getRoles: () => Promise<void>;
     getSession: () => Promise<void>;
@@ -44,7 +42,6 @@ const initialState = {
   loading: true,
   user: undefined,
   roles: undefined,
-  triggerOTP: false,
   adminUsers: [],
 };
 
@@ -68,7 +65,6 @@ export const useInitSession = create<Session>()((set, get) => ({
         });
       }
     },
-    triggerOTPCheck: (value) => set({ triggerOTP: value, loading: false }),
     updateUser: (data) => set({ user: data }),
     updateRoles: (value) => set({ roles: value }),
 
@@ -111,8 +107,6 @@ export const useInitSession = create<Session>()((set, get) => ({
       set((state) => ({
         adminUsers: [user, ...(state.adminUsers ?? [])],
       })),
-
-    // sign-out
 
     signOut: async () => {
       // optimistically clear session
