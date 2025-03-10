@@ -40,25 +40,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     getSession();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const isUnprotectedPage = unprotectedRoutes.includes(pathName);
-
-  if (!isUnprotectedPage && loading) {
-    return (
-      <div className="grid w-screen h-screen place-items-center">
-        <div className="flex flex-col items-center space-y-2">
-          <p className="text-sm animate-pulse">Loading...</p>
-        </div>
-      </div>
-    );
-  }
-
   useEffect(() => {
-    if (loading) {
-      return;
-    }
+    if (loading) return;
 
     if (authPages.includes(pathName) && user) {
       router.push('/');
@@ -81,5 +68,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, [loading, user, pathName, router]);
 
-  return <Provider value={{}}>{children}</Provider>;
+  const isUnprotectedPage = unprotectedRoutes.includes(pathName);
+
+  const showLoading = !isUnprotectedPage && loading;
+
+  return showLoading ? (
+    <div className="grid w-screen h-screen place-items-center">
+      <div className="flex flex-col items-center space-y-2">
+        <p className="text-sm animate-pulse">Loading...</p>
+      </div>
+    </div>
+  ) : (
+    <Provider value={{}}>{children}</Provider>
+  );
 };
