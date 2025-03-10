@@ -35,6 +35,9 @@ const Page = () => {
   const [success, setSuccess] = useState<string | undefined>('');
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [termsError, setTermsError] = useState('');
+
   const {
     reset,
     register,
@@ -45,6 +48,11 @@ const Page = () => {
   });
 
   const onSubmit = async (values: TCreateAccountSchema) => {
+    if (!termsAccepted) {
+      setTermsError('You must accept the terms and conditions');
+      return;
+    }
+
     setIsPending(true);
 
     const formData = {
@@ -75,6 +83,7 @@ const Page = () => {
     }
 
     reset();
+    setTermsError('');
   };
 
   return (
