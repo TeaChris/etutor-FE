@@ -12,3 +12,4 @@
  */
 
 export * from './use-session';
+export * from './auth.context';
