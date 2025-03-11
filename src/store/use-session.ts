@@ -51,7 +51,7 @@ export const useInitSession = create<Session>()((set, get) => ({
   actions: {
     getSession: async () => {
       const { data, error } =
-        await callApi<GetSessionApiResponse>('/admin/session');
+        await callApi<GetSessionApiResponse>('/auth/session');
       if (error) {
         toast.error(error?.message);
         return;
