@@ -19,6 +19,9 @@ const unprotectedRoutes = [
   '/about',
   '/course',
   '/contact',
+  '/sign-in',
+  '/verify-email',
+  '/reset-password',
   '/create-account',
 ];
 
