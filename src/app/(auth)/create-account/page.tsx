@@ -74,10 +74,12 @@ const Page = () => {
     if (data) {
       setIsPending(false);
       setSuccess(data.message);
+      setError('');
       return;
     }
 
     if (error) {
+      setSuccess('');
       setError(error.message);
       setIsPending(false);
       return;
