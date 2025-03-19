@@ -3,7 +3,7 @@
  * Created Date: Th Mar 2025                                                   *
  * Author: Boluwatife Olasunkanmi O.                                           *
  * -----                                                                       *
- * Last Modified: Mon Mar 10 2025                                              *
+ * Last Modified: Wed Mar 19 2025                                              *
  * Modified By: Boluwatife Olasunkanmi O.                                      *
  * -----                                                                       *
  * HISTORY:                                                                    *
@@ -12,6 +12,23 @@
  */
 
 import * as z from 'zod';
+
+export const signInSchema = z.object({
+  email: z
+    .string()
+    .email({ message: 'Please enter a valid email' })
+    .regex(
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+      'Email must include the @ symbol',
+    )
+    .nonempty({ message: 'Email cannot be empty' }),
+  password: z
+    .string()
+    .regex(
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@.!#$%&*])[A-Za-z\d@.!#$%&*]{8,}$/,
+      'Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character (@, ., !, #, $, %, &, *)',
+    ),
+});
 
 export const createAccountSchema = z
   .object({
@@ -54,4 +71,5 @@ export const createAccountSchema = z
     path: ['confirmPassword'],
   });
 
+export type TSignInSchema = z.infer<typeof signInSchema>;
 export type TCreateAccountSchema = z.infer<typeof createAccountSchema>;
