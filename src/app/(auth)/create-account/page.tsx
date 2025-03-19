@@ -268,7 +268,7 @@ const Page = () => {
                     onChange={(e) =>
                       setTermsAccepted((e.target as HTMLInputElement).checked)
                     }
-                    className={cn({
+                    className={cn('custom-checkbox', {
                       'focus-visible:ring-red-500': !!termsError,
                     })}
                   />
