@@ -3,7 +3,7 @@
  * Created Date: Mo Mar 2025                                                   *
  * Author: Boluwatife Olasunkanmi O.                                           *
  * -----                                                                       *
- * Last Modified: Mon Mar 10 2025                                              *
+ * Last Modified: Wed Mar 19 2025                                              *
  * Modified By: Boluwatife Olasunkanmi O.                                      *
  * -----                                                                       *
  * HISTORY:                                                                    *
@@ -25,9 +25,6 @@ const FRONTENDURL = process.env.NEXT_PUBLIC_FRONTEND_URL;
 if (!BASEURL) {
   throw new Error('add BASEURL to your env file');
 }
-
-console.log('BASEURL', BASEURL);
-console.log('BASEURL', FRONTENDURL);
 
 export const isObject = (value: unknown): value is Record<string, unknown> => {
   const isArray = Array.isArray(value);
