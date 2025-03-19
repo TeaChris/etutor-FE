@@ -3,7 +3,7 @@
  * Created Date: Mo Mar 2025                                                   *
  * Author: Boluwatife Olasunkanmi O.                                           *
  * -----                                                                       *
- * Last Modified: Mon Mar 10 2025                                              *
+ * Last Modified: Wed Mar 19 2025                                              *
  * Modified By: Boluwatife Olasunkanmi O.                                      *
  * -----                                                                       *
  * HISTORY:                                                                    *
@@ -35,6 +35,8 @@ type Session = {
     updateAdmins: (users: IUser[]) => void;
     updateAdminUsers: (user: IUser) => void;
     triggerForbiddenError: () => void;
+
+    verifyEmail: (token: string) => Promise<void>;
   };
 };
 
@@ -67,6 +69,18 @@ export const useInitSession = create<Session>()((set, get) => ({
     },
     updateUser: (data) => set({ user: data }),
     updateRoles: (value) => set({ roles: value }),
+
+    verifyEmail: async (token) => {
+      const { data, error } = await callApi('/auth/verify-email', { token });
+      if (error) {
+        toast.error(error?.message);
+        return;
+      }
+
+      if (data) {
+        toast.success(data.message);
+      }
+    },
 
     clearSession: () => {
       set({
