@@ -25,7 +25,12 @@ const unprotectedRoutes = [
   '/create-account',
 ];
 
-const authPages = ['/sign-in', '/reset-password', '/verify-email'];
+const authPages = [
+  '/sign-in',
+  '/reset-password',
+  '/verify-email',
+  '/create-account',
+];
 
 export const RESTRICTED_ROUTES: RestrictedRoutesType = {
   '/instructor': [ROLES.INSTRUCTOR],
