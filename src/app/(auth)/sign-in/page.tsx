@@ -24,6 +24,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { useRouter } from 'next/navigation';
+
 const Page = () => {
   const [isPending, setIsPending] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>('');
@@ -31,6 +33,8 @@ const Page = () => {
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [rememberMe, setRememberMe] = useState<boolean>(false);
+
+  const router = useRouter();
 
   const {
     reset,
@@ -57,7 +61,7 @@ const Page = () => {
 
     if (data) {
       setSuccess(data.message);
-      setIsPending(false);
+      router.push('/');
       setError('');
       reset();
       return;
@@ -66,10 +70,12 @@ const Page = () => {
     if (error) {
       setSuccess('');
       setError(error.message);
-      setIsPending(false);
       return;
     }
+
+    setIsPending(false);
   };
+
   return (
     <main className="flex w-full h-full">
       <div className="w-1/2 h-full overflow-hidden bg-secondary-100">
