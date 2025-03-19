@@ -30,6 +30,7 @@ const Page = () => {
   const [success, setSuccess] = useState<string | undefined>('');
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
 
   const {
     reset,
@@ -47,6 +48,7 @@ const Page = () => {
     const formData = {
       email: values.email,
       password: values.password,
+      remember: rememberMe,
     };
 
     const { data, error } = await callApi('/auth/sign-in', {
@@ -136,28 +138,18 @@ const Page = () => {
                 <div className="flex gap-x-2">
                   <input
                     type="checkbox"
-                    checked={termsAccepted}
+                    checked={rememberMe}
                     onChange={(e) =>
-                      setTermsAccepted((e.target as HTMLInputElement).checked)
+                      setRememberMe((e.target as HTMLInputElement).checked)
                     }
-                    className={cn({
-                      'focus-visible:ring-red-500': !!termsError,
-                    })}
                   />
 
-                  <Label>
-                    I agree with all of you{' '}
-                    <span className="text-blue-500">Terms & condition</span>
-                  </Label>
+                  <Label>Remember me</Label>
                 </div>
-
-                {termsError && (
-                  <p className="text-sm text-red-500">{termsError}</p>
-                )}
               </div>
 
               <Button className="flex gap-x-2 item-center" disabled={isPending}>
-                Create account <Icons.rightArrow className="mt-1" size={17} />
+                Sign in <Icons.rightArrow className="mt-1" size={17} />
               </Button>
             </div>
 
