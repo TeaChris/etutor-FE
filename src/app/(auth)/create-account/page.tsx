@@ -28,10 +28,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 
 const Page = () => {
-  const router = useRouter();
+  // const router = useRouter();
 
   const [isPending, setIsPending] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>('');
@@ -74,7 +74,6 @@ const Page = () => {
     if (data) {
       setIsPending(false);
       setSuccess(data.message);
-      router.push('/verify-email');
       return;
     }
 
