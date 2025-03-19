@@ -1,5 +1,5 @@
 /*
- * Filename: c:\Users\LENOVO\e-tutor\src\components\icons.tsx
+ * Filename: c:\Users\LENOVO\etutor\e-tutor\src\components\icons.tsx
  * Path: c:\Users\LENOVO\e-tutor
  * Created Date: Wednesday, March 5th 2025, 3:30:30 pm
  * Author: Boluwatife Olasunkanmi O.
@@ -10,6 +10,7 @@
 import {
   Eye,
   EyeOff,
+  Loader2,
   LucideProps,
   Mail,
   MessageSquare,
@@ -23,6 +24,7 @@ export const Icons = {
   message: Mail,
   eye: Eye,
   eyeOff: EyeOff,
+  Loader: Loader2,
   logo: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 497 497">
       <g>
