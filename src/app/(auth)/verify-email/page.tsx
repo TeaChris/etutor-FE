@@ -9,7 +9,7 @@
 
 'use client';
 
-import { FormError } from '@/components';
+import { FormError, Icons } from '@/components';
 import { callApi } from '@/lib';
 import { createAccount } from '@public/auth';
 
@@ -68,7 +68,16 @@ const Page = () => {
 
         {isPending && (
           <div className="flex items-center justify-center">
-            <span className="loading loading-spinner text-primary-500"></span>
+            <div className="flex flex-col items-center gap-3">
+              <p className="text-base font-semibold">
+                Verifying your email, please do not refresh
+              </p>
+
+              <Icons.Loader
+                size={20}
+                className="animate-spin text-primary-600"
+              />
+            </div>
           </div>
         )}
       </div>
