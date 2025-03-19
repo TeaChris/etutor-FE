@@ -61,7 +61,7 @@ const Page = () => {
 
     if (data) {
       setSuccess(data.message);
-      router.push('/');
+      router.push('/student/dashboard');
       setError('');
       reset();
       return;
