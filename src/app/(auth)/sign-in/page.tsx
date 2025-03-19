@@ -142,6 +142,7 @@ const Page = () => {
                     onChange={(e) =>
                       setRememberMe((e.target as HTMLInputElement).checked)
                     }
+                    className="custom-checkbox"
                   />
 
                   <Label>Remember me</Label>
