@@ -49,14 +49,17 @@ const Page = () => {
     setIsPending(true);
     setShowPassword(false);
 
-    const formData = {
+    // const formData = {
+    //   email: values.email,
+    //   password: values.password,
+    //   remember: rememberMe,
+    // };
+
+    const { data, error } = await callApi('/auth/sign-in', {
+      // ...formData,
       email: values.email,
       password: values.password,
       remember: rememberMe,
-    };
-
-    const { data, error } = await callApi('/auth/sign-in', {
-      ...formData,
     });
 
     if (data) {
